@@ -44,7 +44,7 @@ def is_horizontal(tbl:list,symbol:str)-> bool:
     pass
 
 
-def is_vertical():
+def is_vertical(tbl:list,symbol:str)->bool:
     pass
 
 
