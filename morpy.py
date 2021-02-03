@@ -40,7 +40,7 @@ def is_finished(a_board: list) -> bool:
     return True
 
 
-def is_horizontal():
+def is_horizontal(tbl:list,symbol:str)-> bool:
     pass
 
 
@@ -48,12 +48,12 @@ def is_vertical():
     pass
 
 
-def is_slash():
-    pass
+def is_slash(a_board,symbol:str)->bool:
+    return a_board[0][2] == symbol and a_board[1][1] ==symbol and a_board[2][0] == symbol
 
 
-def is_backslash():
-    pass
+def is_backslash(a_board,symbol:str) -> bool:
+    return a_board[0][0] == symbol and a_board[1][1] == symbol and a_board[2][2] == symbol
 
 
 def is_won()-> bool:
