@@ -40,6 +40,31 @@ def is_finished(a_board: list) -> bool:
     return True
 
 
+def is_horizontal():
+    pass
+
+
+def is_vertical():
+    pass
+
+
+def is_slash():
+    pass
+
+
+def is_backslash():
+    pass
+
+
+def is_won()-> bool:
+    """
+    Définit si le jeu est gagné ou non
+    :return: True si le jeu est gagné, False sinon
+    """
+    return is_horizontal() or is_vertical() or is_slash() or is_backslash()
+
+
+
 # PROGRAMME PRINCIPAL
 if __name__ == '__main__':
     board = [["_" for _ in range(LINES)] for _ in range(LINES)]
