@@ -12,10 +12,11 @@
 # VARIABLES "GLOBALES"
 LINES = 3
 
+
 # DÉFINITIONS DE FONCTIONS
 
-def show_board(a_board:list):
-    """Affiche un tableau de jeu à l’écran""" # [[_,_,_], [_,_,_],[_,_,_]]
+def show_board(a_board: list):
+    """Affiche un tableau de jeu à l’écran"""  # [[_,_,_], [_,_,_],[_,_,_]]
     """ _ _ _
         _ X _
         _ _ O
@@ -23,9 +24,12 @@ def show_board(a_board:list):
     i = 1
     for line in a_board:
         for cell in line:
-            print(i,end="")
-            i+=1
-        print("") # passage à la ligne par ici
+            if cell == "X" or cell == "O":
+                print(cell, end=" ")
+            else:
+                print(i, end=" ")
+            i += 1
+        print("")  # passage à la ligne par ici
 
 
 # PROGRAMME PRINCIPAL
