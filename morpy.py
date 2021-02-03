@@ -27,15 +27,21 @@ def show_board(a_board: list):
             i += 1
         print("")  # passage à la ligne par ici
 
-def is_finished(a_board: list)-> bool:
+
+def is_finished(a_board: list) -> bool:
     """
     Détecte si la partie est terminée
     :param a_board: le tableau de jeu
     :return: True si la partie est terminée, False sinon
     """
+    for line in board:
+        if "_" in line:
+            return False
+    return True
 
 
 # PROGRAMME PRINCIPAL
 if __name__ == '__main__':
     board = [["_" for _ in range(LINES)] for _ in range(LINES)]
     show_board(board)
+    print(is_finished(board))
