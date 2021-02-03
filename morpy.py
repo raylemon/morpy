@@ -1,12 +1,8 @@
 # IMPORTS
 
-# création d’un tableau 3*3
 # Jeu à deux joueurs, à tour de rôle
 # Joueur 1 utilise "X", Joueur 2 utilise "O"
 # AI - Anticiper les coups (plus tard !)
-# Interface Graphique (plus tard)
-# tableaux plus grands (plus tard)
-# gagner avec des lignes plus grandes (plus tard)
 # détecter QUAND la partie se termine -> QUI à gagné (X,O) ou égalité
 
 # VARIABLES "GLOBALES"
@@ -30,6 +26,13 @@ def show_board(a_board: list):
                 print(i, end=" ")
             i += 1
         print("")  # passage à la ligne par ici
+
+def is_finished(a_board: list)-> bool:
+    """
+    Détecte si la partie est terminée
+    :param a_board: le tableau de jeu
+    :return: True si la partie est terminée, False sinon
+    """
 
 
 # PROGRAMME PRINCIPAL
