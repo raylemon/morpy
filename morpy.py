@@ -40,32 +40,32 @@ def is_finished(a_board: list) -> bool:
     return True
 
 
-def is_horizontal(tbl:list,symbol:str)-> bool:
+def is_horizontal(tbl: list, symbol: str) -> bool:
     pass
 
 
-def is_vertical(tbl:list,symbol:str)->bool:
+def is_vertical(tbl: list, symbol: str) -> bool:
     pass
 
 
-def is_slash(a_board,symbol:str) -> bool:
+def is_slash(a_board, symbol: str) -> bool:
     for i in range(len(a_board)):
-        if not a_board[i][len(a_board)-i-1] == symbol:
+        if not a_board[i][len(a_board) - i - 1] == symbol:
             return False
     return True
-    #return a_board[0][2] == symbol and a_board[1][1] ==symbol and a_board[2][0] == symbol
+    # return a_board[0][2] == symbol and a_board[1][1] ==symbol and a_board[2][0] == symbol
 
 
-def is_backslash(a_board,symbol:str) -> bool:
+def is_backslash(a_board, symbol: str) -> bool:
     for i in range(len(a_board)):
         if not a_board[i][i] == symbol:
             return False
     return True
 
-    #return a_board[0][0] == symbol and a_board[1][1] == symbol and a_board[2][2] == symbol
+    # return a_board[0][0] == symbol and a_board[1][1] == symbol and a_board[2][2] == symbol
 
 
-def is_won()-> bool:
+def is_won() -> bool:
     """
     Définit si le jeu est gagné ou non
     :return: True si le jeu est gagné, False sinon
@@ -73,9 +73,8 @@ def is_won()-> bool:
     return is_horizontal() or is_vertical() or is_slash() or is_backslash()
 
 
-
 # PROGRAMME PRINCIPAL
 if __name__ == '__main__':
     board = [["_" for _ in range(LINES)] for _ in range(LINES)]
     show_board(board)
-    print(is_slash(board,"X"))
+    print(is_slash(board, "X"))
