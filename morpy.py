@@ -76,11 +76,31 @@ def is_won() -> bool:
     return is_horizontal() or is_vertical() or is_slash() or is_backslash()
 
 
+def play(a_board:list, is_player:bool, symbol):
+    empties = []
+    i = 1
+    for line in a_board:
+        for cell in line:
+            if cell == "_":
+                empties.append(i)
+            i += 1
+
+    if is_player:
+        rep = input(f"Entrez un nombre entre {empties}: ")
+        if not rep.isdigit():
+            return -1
+        else:
+            if int(rep) not in empties:
+                return - 1
+            else:
+                return int(rep)
+
+    else: # c’est l’ordinateur
+        return random.choice(empties)
+
+
 # PROGRAMME PRINCIPAL
 if __name__ == '__main__':
     board = [["_" for _ in range(LINES)] for _ in range(LINES)]
     show_board(board)
-
-
-def play(a_board:list, is_player:bool, symbol):
-    return random.randint(1,9)
+    print(play(board,False,"X"))

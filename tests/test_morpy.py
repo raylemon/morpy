@@ -1,5 +1,6 @@
 import morpy
 import pytest
+from io import StringIO
 
 # pip install -U pytest
 
@@ -88,5 +89,24 @@ def test_play_computer_non_empty(attempt):
     assert rslt in [3,6,9]
 
 
-def test_play_human():
-    pass
+@pytest.mark.parametrize("attempt",range(50))
+def test_play_computer_non_empty_2(attempt):
+    rslt = morpy.play(win_board_o_slash, is_player=False, symbol="X")
+    assert rslt not in [3,5,7]
+
+
+def test_play_human(monkeypatch):
+    # l’humain tape forcément la touche "6"
+    s_in = StringIO("6\n") # <- simulation d’appui de la touche "6"
+    monkeypatch.setattr("sys.stdin",s_in)
+    rslt = morpy.play(empty_board,is_player=True,symbol="X")
+
+    assert rslt == 6
+
+def test_play_human(monkeypatch):
+    # l’humain tape forcément la touche "6"
+    s_in = StringIO("4\n") # <- simulation d’appui de la touche "6"
+    monkeypatch.setattr("sys.stdin",s_in)
+    rslt = morpy.play(predic_random,is_player=True,symbol="X")
+
+    assert rslt == -1
