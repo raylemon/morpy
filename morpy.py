@@ -77,4 +77,3 @@ def is_won() -> bool:
 if __name__ == '__main__':
     board = [["_" for _ in range(LINES)] for _ in range(LINES)]
     show_board(board)
-    print(is_slash(board, "X"))

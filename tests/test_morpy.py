@@ -1,6 +1,8 @@
 import morpy
 import pytest
 
+# pip install -U pytest
+
 empty_board = [["_" for _ in range(3)] for _ in range(3)]
 
 win_board_o_hor = [["O", "O", "O"],
@@ -59,3 +61,8 @@ predic_random = [["X", "O", "_"],
                  ["X", "O", "_"],
                  ["O", "X", "_"]]
 
+
+def test_show_board(capsys):
+    morpy.show_board(empty_board)
+    rslt = capsys.readouterr().out  # <= flux de sortie
+    assert "1 2 3 \n4 5 6 \n7 8 9 \n" == rslt
