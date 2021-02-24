@@ -1,4 +1,5 @@
 # IMPORTS
+import random
 
 # Jeu à deux joueurs, à tour de rôle
 # Joueur 1 utilise "X", Joueur 2 utilise "O"
@@ -6,6 +7,8 @@
 # détecter QUAND la partie se termine -> QUI à gagné (X,O) ou égalité
 
 # VARIABLES "GLOBALES"
+
+
 LINES = 3
 
 
@@ -77,3 +80,7 @@ def is_won() -> bool:
 if __name__ == '__main__':
     board = [["_" for _ in range(LINES)] for _ in range(LINES)]
     show_board(board)
+
+
+def play(a_board:list, is_player:bool, symbol):
+    return random.randint(1,9)

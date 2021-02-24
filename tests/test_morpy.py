@@ -63,14 +63,30 @@ predic_random = [["X", "O", "_"],
 
 
 @pytest.mark.parametrize("board,result", [
-    (empty_board,"1 2 3 \n4 5 6 \n7 8 9 \n"),
-    (win_board_o_hor,"O O O \n4 5 6 \n7 8 9 \n"),
-    (win_board_x_hor,"X X X \n4 5 6 \n7 8 9 \n"),
-    (board_draw,"X O X \nX O O \nO X X \n"),
-                                          ])
+    (empty_board, "1 2 3 \n4 5 6 \n7 8 9 \n"),
+    (win_board_o_hor, "O O O \n4 5 6 \n7 8 9 \n"),
+    (win_board_x_hor, "X X X \n4 5 6 \n7 8 9 \n"),
+    (board_draw, "X O X \nX O O \nO X X \n"),
+])
 # param 1 : tous les paramètres utilisés
 # param 2 : les entrées et  les résultats attendus
 def test_show_board(capsys, board, result):
     morpy.show_board(board)
     rslt = capsys.readouterr().out  # <= flux de sortie
     assert result == rslt
+
+
+@pytest.mark.parametrize("attempt",range(50))
+def test_play_computer(attempt):
+    rslt = morpy.play(empty_board, is_player=False, symbol="X")
+    assert 1 <= rslt <= 9
+
+
+@pytest.mark.parametrize("attempt",range(50))
+def test_play_computer_non_empty(attempt):
+    rslt = morpy.play(predic_random, is_player=False, symbol="X")
+    assert rslt in [3,6,9]
+
+
+def test_play_human():
+    pass
